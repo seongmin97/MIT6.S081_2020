@@ -44,6 +44,7 @@ testmem() {
   uint64 n = countfree();
   
   sinfo(&info);
+  printf("sysinfotest: free mem is %d\n", info.freemem);
 
   if (info.freemem!= n) {
     printf("FAIL: free mem %d (bytes) instead of %d\n", info.freemem, n);
@@ -98,6 +99,7 @@ void testproc() {
   
   sinfo(&info);
   nproc = info.nproc;
+  printf("sysinfotest: current nproc is %d\n", info.nproc);
 
   pid = fork();
   if(pid < 0){
